@@ -1,0 +1,18 @@
+
+d=read.csv("C:\\Users\\arunk\\OneDrive\\Desktop\\DWDM\\set1.csv")
+View(d)
+summary(d)
+plot(d$Glucose,d$DiabetesPedigreeFunc􀆟on)
+p1=runif(nrow(d))
+p2=order(p1)
+training_ds=d[p2[1:25],]
+test_ds=d[p2[26:39],]
+Mul􀆟ple_resgression=lm(DiabetesPedigreeFunc􀆟on~Glucose+Age,
+data=training_ds)
+abline(Mul􀆟ple_resgression,col="red")
+summary(Mul􀆟ple_resgression)
+plot(Mul􀆟ple_resgression)
+pred_values=predict(Mul􀆟ple_resgression,newdata = test_ds)
+test_ds$pred_DiabetesPedigreeFunc􀆟on=pred_values
+View(test_ds)
+13.
